@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Contenido:</strong>
+  <%= @microentrada.contenido %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @microentrada.usuario_id %>
+</p>
+
+<%= link_to 'Edit', edit_microentrada_path(@microentrada) %> |
+<%= link_to 'Back', microentradas_path %>
