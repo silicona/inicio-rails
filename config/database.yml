@@ -25,9 +25,9 @@ production:
   pool: 5
   timeout: 5000
   database: inicio_pro/production.postgresql
-  #username: root
+  username: root
   #database: d1o7tlbctkg265
-  encoding: utf-8
-  username: sinsrvmwsnccsq
-  password: a061d7df707b3b364c1a19766f2619cc2b848e71d7d63bd92cb93f21556606f3
-  port: 5432
+  #encoding: utf-8
+  #username: sinsrvmwsnccsq
+  #password: a061d7df707b3b364c1a19766f2619cc2b848e71d7d63bd92cb93f21556606f3
+  #port: 5432
