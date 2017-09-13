@@ -28,7 +28,7 @@ class MicroentradasController < ApplicationController
 
     respond_to do |format|
       if @microentrada.save
-        format.html { redirect_to @microentrada, notice: 'Microentrada was successfully created.' }
+        format.html { redirect_to @microentrada, notice: 'Microentrada creada con éxito.' }
         format.json { render :show, status: :created, location: @microentrada }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MicroentradasController < ApplicationController
   def update
     respond_to do |format|
       if @microentrada.update(microentrada_params)
-        format.html { redirect_to @microentrada, notice: 'Microentrada was successfully updated.' }
+        format.html { redirect_to @microentrada, notice: 'Microentrada actualizada con éxito.' }
         format.json { render :show, status: :ok, location: @microentrada }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MicroentradasController < ApplicationController
   def destroy
     @microentrada.destroy
     respond_to do |format|
-      format.html { redirect_to microentradas_url, notice: 'Microentrada was successfully destroyed.' }
+      format.html { redirect_to microentradas_url, notice: 'Microentrada borrada con éxito.' }
       format.json { head :no_content }
     end
   end

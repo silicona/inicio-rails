@@ -1,0 +1,2 @@
+module FijasHelper
+end
