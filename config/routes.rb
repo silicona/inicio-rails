@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  get 'fijas/acerca'
+  get '/registro', to: 'usuarios#nuevo'
 
-  get 'fijas/inicio'
+  get '/acerca', to: 'fijas#acerca'
 
-  get 'fijas/ayuda'
+  #get '/ayuda', to: 'fijas#ayuda' # Anulado para nombrar la ruta
+  get '/ayuda', to: 'fijas#ayuda', as: "sos"
 
-  get 'fijas/contacto'
+  get '/contacto', to: 'fijas#contacto'
 
-  resources :microentradas
-  resources :usuarios
+  get '/nueva_entrada', to: 'microentradas#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "fijas#inicio"
 end
