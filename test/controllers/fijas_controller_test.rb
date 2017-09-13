@@ -13,7 +13,7 @@ class FijasControllerTest < ActionDispatch::IntegrationTest
   test "should get inicio" do
     get fijas_inicio_url
     assert_response :success
-    assert_select 'title', "Inicio | #{@titulo_base}"
+    assert_select 'title', "#{@titulo_base}"
   end
 
   test "should get inicio por path" do
