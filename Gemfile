@@ -10,6 +10,8 @@ ruby '2.3.3'
 gem 'rails', '~> 5.1.2'
 # Carga la gema de bootstrap con lenguaje Sass
 gem 'bootstrap-sass', '3.3.7'
+# Usa bcrypt para la autentificación de usuarios
+gem 'bcrypt', '3.1.11'
 # Use Puma as the app server
 gem 'puma', '~> 3.9.1'
 # Use SCSS for stylesheets
