@@ -15,6 +15,16 @@ Test de integracion Diseño_web
 Test directos de Helpers en test/helpers/ayudantes_aplicacion_test.rb
 
 Uso de 'debugger' en el controlador para inspeccionar variables y parametros en la vista  
-	(Control + D y eliminar el debugger del controlador para continuar)
+	(Control + D y eliminar el debugger del controlador para continuar)  
+
+Activado el SSL para el envio de datos de forma segura:  
+En config/production.rb - config.force_SSL  
+En config/puma.rb - nuevo código  
+En ./Procfile - nuevo código  
+  
+
+
+
+
 
 
