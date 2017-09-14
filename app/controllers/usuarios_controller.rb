@@ -6,6 +6,7 @@ class UsuariosController < ApplicationController
   def create
   	@usuario = Usuario.new(parametros_usuario)
   	if @usuario.save
+      dar_acceso_a @usuario # En SesionesHelper.rb
   		flash[:success] = "Bienvenido a la PrimeraApp"
   		redirect_to @usuario # Equivalente a redirect_to usuario_url(@usuario)
   	else

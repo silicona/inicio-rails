@@ -21,4 +21,9 @@ class Usuario < ApplicationRecord
 	validates :password, presence: true,
 											 length: { minimum: 8 }
 
+		# Devuelve el digest del string
+	def Usuario.digest(string)
+		coste = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+		BCrypt::Password.create(string, cost: coste)
+	end
 end

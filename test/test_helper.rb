@@ -10,4 +10,9 @@ class ActiveSupport::TestCase
 
   include ApplicationHelper
   # Add more helper methods to be used by all tests here...
+
+  	# Devuelve true si un usuario de pruebas ha accedido
+  def estaLogeado?
+  	!session[:id_usuario].nil?
+  end
 end

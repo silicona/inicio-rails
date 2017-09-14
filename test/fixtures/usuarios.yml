@@ -1,9 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   nombre: MyString
-#   email: MyString
-
-# two:
-#   nombre: MyString
-#   email: MyString
+paco:
+  nombre: Paco
+  email: elmaildesiempre@example.com
+  password_digest: <%= Usuario.digest('password') %>

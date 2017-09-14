@@ -14,6 +14,7 @@ class RegistroUsuariosTest < ActionDispatch::IntegrationTest
 		follow_redirect!
 		assert_template "usuarios/show"
 		assert flash[:success]
+		assert estaLogeado?
 	end
 
 	test "No debería registrar un nuevo usuario" do
