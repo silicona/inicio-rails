@@ -12,15 +12,23 @@ class Usuario
 	end
 end
 
-=begin
-Ejecutando en consola:
+######################################
+######################################
+# Ejecutando en consola:
 
-Convierte strings en un array:
-%w[foo bar baz] => ["foo", "bar", "baz"]
+# Convierte strings en un array:
+# %w[foo bar baz] => ["foo", "bar", "baz"]
 
-direcciones = %w[miemail2jaja.com soyunico@mail.com pepe@mail.com]
-direcciones.each do |direccion|
-puts direccion
-end
+# direcciones = %w[miemail2jaja.com soyunico@mail.com pepe@mail.com]
+# 	direcciones.each do |direccion|
+# 	puts direccion
+# end
 
-=end
+
+# Apartado Flash
+# flash = { exito: "Funciona", error: "Fracaso"}
+# flash.each do |llave, valor|
+# 	puts "#{llave}"
+# 	puts "#{valor}"
+# end
+

@@ -1,0 +1,20 @@
+<% provide(:titulo, @usuario.nombre) %>
+<div class="row">
+	<aside class="col-md-4">
+		<section class="info_usuario">
+			<h1>
+				<!-- Ayudante en app/helpers/usuarios_helper.rb -->
+				<%#= gravatarPara @usuario %> 
+				<%= gravatarPara @usuario, medida: 80 %> 
+				<%= @usuario.nombre %>
+			</h1>
+		</section>
+	</aside>
+</div>
+<ul>
+	<li><%= @usuario.nombre %></li>
+	<li><%= @usuario.email %></li>
+	<li><%= @usuario.created_at %></li>
+	<li><%= @usuario.updated_at %></li>
+	<li><%= Time.now %></li>
+</ul>

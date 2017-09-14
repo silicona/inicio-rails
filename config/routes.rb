@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get '/registro', to: 'usuarios#nuevo'
 
   get '/acerca', to: 'fijas#acerca'
 
@@ -8,7 +7,10 @@ Rails.application.routes.draw do
 
   get '/contacto', to: 'fijas#contacto'
 
-  get '/nueva_entrada', to: 'microentradas#new'
+  resources :usuarios
+  get '/registro', to: 'usuarios#new'
+  post "/registro", to: "usuarios#create"
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "fijas#inicio"
 end
