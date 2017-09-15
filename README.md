@@ -22,6 +22,10 @@ En config/production.rb - config.force_SSL
 En config/puma.rb - nuevo código  
 En ./Procfile - nuevo código  
   
+Ayudantes de rails:  
+	http://api.rubyonrails.org/v5.1/classes/ActionView/Helpers/DateHelper.html  
+  
+
 
 
 

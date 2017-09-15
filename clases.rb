@@ -32,3 +32,6 @@ end
 # 	puts "#{valor}"
 # end
 
+# Url Segura
+# SecureRandom.urlsafe_base64
+

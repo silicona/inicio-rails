@@ -15,4 +15,20 @@ class ActiveSupport::TestCase
   def estaLogeado?
   	!session[:id_usuario].nil?
   end
+
+  	# Acceder como un usuario en los test de controladores
+  def dar_acceso_como
+  	session[:id_usuario] = usuario.id
+  end
+
+end
+
+class ActionDispatch::IntegrationTest
+
+  	# Acceder como un usuario en los test de integracion
+	def dar_acceso_como(usuario, password: 'password', recuerda_me: '1')
+		post acceder_path, params: { sesiones: { email: usuario.email,
+																						 password: password,
+																						 recuerda_me: recuerda_me } }
+	end
 end
