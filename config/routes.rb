@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/registro', to: 'usuarios#new'
   post "/registro", to: "usuarios#create"
+
   resources :usuarios
   
 end

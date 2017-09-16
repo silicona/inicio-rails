@@ -1,0 +1,16 @@
+<%= form_for(@usuario) do |f| %>
+	<%= render 'compartido/mensaje_error' %>
+	<%= f.label :nombre %>
+	<%= f.text_field :nombre, class: 'form-control' %>
+	
+	<%= f.label :email %>
+	<%= f.email_field :email, class: 'form-control' %>
+	
+	<%= f.label :password %>
+	<%= f.password_field :password, class: 'form-control' %>
+	
+	<%= f.label :password_confirmation, "Confirmación" %>
+	<%= f.password_field :password_confirmation, class: 'form-control' %>
+
+	<%= f.submit yield(:texto_boton), class: "btn btn-primary" %>
+<% end %>

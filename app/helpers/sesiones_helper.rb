@@ -12,6 +12,11 @@ module SesionesHelper
 		cookies.permanent[:token_recuerda] = usuario.token_recuerda
 	end
 
+		# Devuelve true si el usuario es el usuario_actual
+	def usuario_actual?(usuario)
+		usuario == usuario_actual
+	end
+
 		# Devuelve el usuario logeado o de sesion persistente, si lo hay
 	def usuario_actual
 		if (id_usuario = session[:id_usuario])
@@ -43,5 +48,16 @@ module SesionesHelper
 		olvidar(usuario_actual)
 		session.delete(:id_usuario)
 		@usuario_actual = nil
+	end
+
+		# Redirige a la URL deseada o a la de defecto
+	def redirigir_a_URL_o(defecto)
+		redirect_to(session[:url_deseada] || defecto)
+		session.delete(:url_deseada)
+	end
+
+		# Guarda la URL a la que intenta acceder
+	def guardar_URL
+		session[:url_deseada] = request.original_url if request.get?
 	end
 end

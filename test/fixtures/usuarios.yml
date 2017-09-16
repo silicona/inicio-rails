@@ -4,3 +4,28 @@ paco:
   nombre: Paco
   email: elmaildesiempre@example.com
   password_digest: <%= Usuario.digest('password') %>
+  admin: true
+
+shilum:
+  nombre: Perraca
+  email: peluda@dormida.com
+  password_digest: <%= Usuario.digest('password') %>
+
+sara:
+  nombre: sara
+  email: suemail@example.com
+  password_digest: <%= Usuario.digest('password') %>
+
+clara:
+  nombre: Clara
+  email: clara@example.com
+  password_digest: <%= Usuario.digest('password') %>
+
+<% 30.times do |n| %>
+user <%= n %>:
+  nombre: <%= "Usuario #{n}" %>
+  email: <%= "usuario-#{n}@example.com" %>
+  password_digest: <%= Usuario.digest('password') %>
+<% end %>
+
+

@@ -1,13 +1,27 @@
 require 'test_helper'
 
 class DiseñoWebTest < ActionDispatch::IntegrationTest
+  setup do
+    @usuario = usuarios(:paco)
+  end
+
   test "diseño de enlaces en root" do
 		get root_url
 		assert_template "fijas/inicio" # Confirma que llegamos a la vista de Inicio
 		assert_select "a[href=?]", root_path, count: 2  	
 		assert_select "a[href=?]", sos_path  	
 		assert_select "a[href=?]", contacto_path  	
-		assert_select "a[href=?]", acerca_path  	
+    assert_select "a[href=?]", acerca_path
+		assert_select "a[href=?]", acceder_path
+    dar_acceso_como	@usuario
+    get root_url
+    assert_template "fijas/inicio"
+    assert_select "a[href=?]", acceder_path, count: 0
+    assert_select "a[href=?]", usuarios_path
+    assert_select "a[href=?]", "#", text: "Tu cuenta"
+    assert_select "a[href=?]", usuario_path(@usuario)
+    assert_select "a[href=?]", edit_usuario_path(@usuario)
+    assert_select "a[href=?]", salir_path
   end
 
   test "Diseño de enlaces en ayuda" do

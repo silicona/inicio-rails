@@ -20,7 +20,8 @@ class Usuario < ApplicationRecord
 		# Necesita gema bcrypt en gemfile
 
 	validates :password, presence: true,
-											 length: { minimum: 8 }
+											 length: { minimum: 8 },
+											 allow_nil: true
 
 	class << self # self se refiere a la clase Usuario - Modo ExtraConfuso
 			# Devuelve el digest del string
@@ -54,5 +55,8 @@ class Usuario < ApplicationRecord
 	def olvidar
 		update_attribute(:digest_recuerda, nil)
 	end
+
+		#Configuracion de Paginate en index para el modelo Usuario
+	self.per_page = 10
 
 end
