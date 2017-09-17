@@ -1,0 +1,5 @@
+Hola, <%= @usuario.nombre %>:
+
+Bienvenid@ a la Primera App! Por favor, haz click en el siguiente enlace para activar tu cuenta:
+
+<%= edit_activacion_cuenta_url(@usuario.token_activacion, email: @usuario.email) %>

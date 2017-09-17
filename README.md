@@ -1,5 +1,7 @@
 # Primera aplicacion con Rails
 
+Aplicacion traducida al castellano, creada con el tutorial de rails de Michael Hartl. Puedes verlo [aquí](https://www.railstutorial.org).
+
 ## Direcciones del proyecto
 
 Github: repositorio inicio  
@@ -39,6 +41,10 @@ Resolver como poner las URLs en castellano (caso de usuarios/x/edit)
 Procedimiento para borrar en caso de no usar JavaScript - <http://railscasts.com/episodes/77-destroy-without-javascript>
 
 Guia de Markdown de [Joe Castro](http://joedicastro.com/pages/markdown.html)
+
+En Heroku, el orden de usuarios difiere del orden local.
+
+Gema will_paginate - [Documentacion](https://github.com/mislav/will_paginate/wiki/API-documentation)
 
 
 

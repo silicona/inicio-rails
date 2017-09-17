@@ -24,7 +24,7 @@ module SesionesHelper
 		elsif (id_usuario = cookies.signed[:id_usuario])
 			#raise # Error provocado para la prueba de test/helpers/sesiones_helper_test.rb
 			usuario = Usuario.find_by(id: id_usuario)
-			if usuario && usuario.autentificado?(cookies[:token_recuerda])
+			if usuario && usuario.autentificado?(:recuerda, cookies[:token_recuerda])
 				dar_acceso_a usuario
 				@usuario_actual = usuario
 			end

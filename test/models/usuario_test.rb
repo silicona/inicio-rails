@@ -80,6 +80,6 @@ class UsuarioTest < ActiveSupport::TestCase
   end
 
   test "autentificado? debería retornar falso para un usuario con digest = nil" do
-  	assert_not @usuario.autentificado?('')
+  	assert_not @usuario.autentificado?(:recuerda, '')
   end
 end

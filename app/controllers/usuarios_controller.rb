@@ -4,7 +4,7 @@ class UsuariosController < ApplicationController
   before_action :usuario_admin, only: [:destroy]
 
   def index
-    @usuarios = Usuario.paginate(page: params[:page])
+    @usuarios = Usuario.where(activado: true).paginate(page: params[:page])
   end
   
   def new
@@ -14,9 +14,13 @@ class UsuariosController < ApplicationController
   def create
   	@usuario = Usuario.new(parametros_usuario)
   	if @usuario.save
-      dar_acceso_a @usuario # En SesionesHelper.rb
-  		flash[:success] = "Bienvenido a la PrimeraApp"
-  		redirect_to @usuario # Equivalente a redirect_to usuario_url(@usuario)
+        # Anulado por la activacion de usuario por mail
+      # dar_acceso_a @usuario # En SesionesHelper.rb
+  		# flash[:success] = "Bienvenido a la PrimeraApp"
+  		# redirect_to @usuario # Equivalente a redirect_to usuario_url(@usuario)
+      @usuario.enviar_mail_activacion
+      flash[:info] = "Por favor, comprueba tu email para activar la cuenta."
+      redirect_to root_url
   	else
   		render 'new'
   	end
@@ -38,11 +42,12 @@ class UsuariosController < ApplicationController
 
   def show
   	@usuario = Usuario.find(params[:id])
+    redirect_to root_url and return unless @usuario.activado
   end
 
   def destroy
     Usuario.find(params[:id]).destroy
-    flash[:sucess] = "Usuario borrado"
+    flash[:success] = "Usuario borrado"
     redirect_to usuarios_url
   end
 

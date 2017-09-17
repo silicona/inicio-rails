@@ -1,7 +1,7 @@
 class Usuario < ApplicationRecord
-	before_save { self.email = email.downcase } # Preferible para asegurar que el mail objetivo es el del usuario
-	# before_save { email.downcase! } # Equivalente al anterior before_save
-	attr_accessor :token_recuerda 
+	attr_accessor :token_recuerda, :token_activacion 
+	before_save :formatear_email
+	before_create :crear_digest_activacion
 
 	#RegexpEmail = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	RegexpEmail = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -47,9 +47,15 @@ class Usuario < ApplicationRecord
 	end
 
 		# Devuelve true si el token coincide con el digest correspondiente
-	def autentificado?(token_recuerda)
-		return false if digest_recuerda.nil?
-		BCrypt::Password.new(digest_recuerda).is_password?(token_recuerda)
+			# Refactorizado para la activacion de usuario y reseteo de password
+			# def autentificado?(token_recuerda)
+			# 	return false if digest_recuerda.nil?
+			# 	BCrypt::Password.new(digest_recuerda).is_password?(token_recuerda)
+			# end
+	def autentificado?(atributo, token)
+		digest = send("digest_#{atributo}")
+		return false if digest.nil?
+		BCrypt::Password.new(digest).is_password?(token)
 	end
 
 	def olvidar
@@ -59,4 +65,24 @@ class Usuario < ApplicationRecord
 		#Configuracion de Paginate en index para el modelo Usuario
 	self.per_page = 10
 
+	def activar
+			#update_attribute(:activado, true)
+			#update_attribute(:activado_en, Time.zone.now)
+		update_columns(activado: true, activado_en: Time.zone.now)
+	end
+
+	def enviar_mail_activacion
+		CorreoUsuarioMailer.activacion_cuenta(self).deliver_now
+	end
+
+	private
+		def formatear_email
+			self.email = email.downcase # Preferible para asegurar que el mail objetivo es el del usuario
+			#email.downcase! # Equivalente al anterior, pero no mantiene la asignacion
+		end
+
+		def crear_digest_activacion
+			self.token_activacion = Usuario.nuevo_token
+			self.digest_activacion = Usuario.digest(token_activacion)
+		end
 end

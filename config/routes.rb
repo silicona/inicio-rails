@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   post "/registro", to: "usuarios#create"
 
   resources :usuarios
-  
+  resources :activacion_cuentas, only: [:edit]
 end

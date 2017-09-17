@@ -35,3 +35,14 @@ end
 # Url Segura
 # SecureRandom.urlsafe_base64
 
+# a=[1,2,3]
+# a.length => 3
+# a.send(:length) => 3
+# a.send('length') => 3
+	# Empleado en el modelo Usuario#autentificado?
+# usuario = Usuario.first
+# usuario.digest_activacion => "$2a$10$KApqwdMeBqNSSU6jrst5HOB1YfQVzUA51jZr5TVHAX4fijndBiwoq"
+# usuario.send(:digest_activacion) => "$2a$10$KApqwdMeBqNSSU6jrst5HOB1YfQVzUA51jZr5TVHAX4fijndBiwoq"
+# usuario.send('digest_activacion') => "$2a$10$KApqwdMeBqNSSU6jrst5HOB1YfQVzUA51jZr5TVHAX4fijndBiwoq"
+# atributo = :activacion
+# usuario.send("digest_#{activacion}") => "$2a$10$KApqwdMeBqNSSU6jrst5HOB1YfQVzUA51jZr5TVHAX4fijndBiwoq"
