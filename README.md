@@ -42,9 +42,23 @@ Procedimiento para borrar en caso de no usar JavaScript - <http://railscasts.com
 
 Guia de Markdown de [Joe Castro](http://joedicastro.com/pages/markdown.html)
 
-En Heroku, el orden de usuarios difiere del orden local.
+En Heroku, el orden de usuarios difiere del orden local. (problema por resolver)
 
 Gema will_paginate - [Documentacion](https://github.com/mislav/will_paginate/wiki/API-documentation)
+
+###Seguridad de Rails
+
+Articulo sobre la [Seguridad de variables](https://aloneinthebotnet.wordpress.com/2015/11/23/seguridad-y-variables-de-entorno-en-una-aplicacion-rails/)
+
+###Notas de Heroku
+
+Introducir [variables de entorno en Heroku](https://medium.com/@MiguelCasas/variables-de-entorno-uso-en-heroku-13bd008afb19)
+
+Mostrar las variables de entorno en Heroku:  
+~~~
+'heroku run printenv'
+~~~
+
 
 
 
