@@ -10,6 +10,8 @@ Heroku: https://iniciorails.herokuapp.com/
 ## Apuntes varios del proyecto
 
 Modificacion de plurales: ActiveSupport::Inflector en config/environment.rb  
+* Este archivo anula el archivo config/initializers/inflections.rb
+* Añadido 'password' como irregular (para el reseteo de password)
 
 Heroku: Migrar base de datos - heroku run rails db:migrate --app iniciorails  
   

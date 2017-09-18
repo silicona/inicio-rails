@@ -9,6 +9,7 @@
 			<%= f.email_field :email, class: 'form-control' %>
 
 			<%= f.label :password %>
+			<%= link_to "(¿Olvidaste la contraseña?)", new_reseteo_password_path %>
 			<%= f.password_field :password, class: 'form-control' %>
 
 			<%= f.label :recuerda_me, class: "checkbox inline" do %>

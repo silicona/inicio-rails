@@ -10,7 +10,9 @@ class CorreoUsuarioMailerPreview < ActionMailer::Preview
 
   # Preview this email at http://localhost:3000/rails/mailers/correo_usuario_mailer/restablecer_password
   def restablecer_password
-    CorreoUsuarioMailer.restablecer_password
+    usuario = Usuario.first
+    usuario.token_reseteo = Usuario.nuevo_token
+    CorreoUsuarioMailer.restablecer_password(usuario)
   end
 
 end

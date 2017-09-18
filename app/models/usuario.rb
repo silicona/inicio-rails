@@ -1,5 +1,5 @@
 class Usuario < ApplicationRecord
-	attr_accessor :token_recuerda, :token_activacion 
+	attr_accessor :token_recuerda, :token_activacion, :token_reseteo
 	before_save :formatear_email
 	before_create :crear_digest_activacion
 
@@ -73,6 +73,23 @@ class Usuario < ApplicationRecord
 
 	def enviar_mail_activacion
 		CorreoUsuarioMailer.activacion_cuenta(self).deliver_now
+	end
+
+		# Establece los atributos para restablecer la contraseña
+	def crear_digest_reseteo
+		self.token_reseteo = Usuario.nuevo_token
+			#update_attribute(:digest_reseteo, Usuario.digest(token_reseteo))
+			#update_attribute(:reseteo_enviado_en, Time.zone.now)
+		update_columns(digest_reseteo: Usuario.digest(token_reseteo), reseteo_enviado_en: Time.zone.now)
+	end
+
+		# Envia el mail para restablecer la contraseña
+	def enviar_mail_reseteo
+		CorreoUsuarioMailer.restablecer_password(self).deliver_now
+	end
+
+	def reseteo_password_expirado?
+		reseteo_enviado_en < 2.hours.ago
 	end
 
 	private

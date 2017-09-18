@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   delete '/salir', to: "sesiones#destroy"
 
   get '/acerca', to: 'fijas#acerca'
-  #get '/ayuda', to: 'fijas#ayuda' # Anulado para nombrar la ruta
+    #get '/ayuda', to: 'fijas#ayuda' # Anulado para nombrar la ruta
   get '/ayuda', to: 'fijas#ayuda', as: "sos"
   get '/contacto', to: 'fijas#contacto'
 
@@ -16,4 +16,5 @@ Rails.application.routes.draw do
 
   resources :usuarios
   resources :activacion_cuentas, only: [:edit]
+  resources :reseteo_passwords, only: [:new, :create, :edit, :update]
 end
