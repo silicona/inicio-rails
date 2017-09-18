@@ -40,13 +40,18 @@ Ver los [Ayudantes de rails][1] en la API de Rails.
 Resolver como poner las URLs en castellano (caso de usuarios/x/edit)  
 	Comprobar la traduccion de metodos en los controladores - seguramente llevara a deshechar el resources de routes y crear las rutas manualmente
 
-Procedimiento para borrar en caso de no usar JavaScript - <http://railscasts.com/episodes/77-destroy-without-javascript>
+Procedimiento para borrar usuarios en caso de no usar JavaScript - <http://railscasts.com/episodes/77-destroy-without-javascript>
 
 Guia de Markdown de [Joe Castro](http://joedicastro.com/pages/markdown.html)
 
 En Heroku, el orden de usuarios difiere del orden local. (problema por resolver)
 
 Gema will_paginate - [Documentacion](https://github.com/mislav/will_paginate/wiki/API-documentation)
+
+~~~
+Nota de Reseteo de password:  
+En local, la direccion web enviada por la app no aparece escapada. En Heroku, todo correcto
+~~~
 
 ###Seguridad de Rails
 
