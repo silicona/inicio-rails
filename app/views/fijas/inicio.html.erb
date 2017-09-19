@@ -1,15 +1,5 @@
-<div class="center jumbotron">
-	<h1>Bienvenidas a la PrimeraApp</h1>
-
-	<h2>
-		Pagina de inicio de la PrimeraApp
-	</h2>
-
-	<%= link_to 'Registrate ahora!', registro_path, class: "btn btn-lg btn-primary" %>
-
-</div>
-
-<section id="imagenes">
-	<%= link_to image_tag("rails.png", alt: "Logo de Rails", id: "logo_rails"), 'http://rubyonrails.org/' %><br>
-	<%= link_to image_tag("gatonegro.jpg", alt: "Gato negro", id: "gatito" ), 'http://https://pxwalls.com/es/macro/gato-negro-gato-ojos' %>
-</section>
+<% if ha_accedido? %>
+	<%= render "fijas/usuario_accedido" %>
+<% else %>
+	<%= render "fijas/usuario_no_accedido" %>
+<% end %>

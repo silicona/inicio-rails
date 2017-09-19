@@ -1,0 +1,14 @@
+<li id="microentrada-<%= microentrada.id %>">
+	<%= link_to gravatarPara(microentrada.usuario, medida: 50), microentrada.usuario %>
+	<span class="usuario"><%= link_to microentrada.usuario.nombre, microentrada.usuario %></span>
+	<span class="contenido">
+		<%= microentrada.contenido %>
+		<%= image_tag microentrada.imagen.url if microentrada.imagen? %>		
+	</span>
+	<span class="fecha">
+		Publicado: <%= time_ago_in_words(microentrada.created_at) %>
+		<% if usuario_actual?(microentrada.usuario) %>
+			<%= link_to "borrar", microentrada, method: :delete, data: { confirm: "¿Estás segura?" } %>
+		<% end %>
+	</span>
+</li>

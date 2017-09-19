@@ -53,6 +53,23 @@ Nota de Reseteo de password:
 En local, la direccion web enviada por la app no aparece escapada. En Heroku, todo correcto
 ~~~
 
+Gema Faker - [Documentacion](https://github.com/stympy/faker)
+
+Listing 13.24:  
+* render @microentrada
+* will_paginate @microentrada
+
+Gema fog (de carga de imagenes)  
+	IMPORTANT NOTICE:
+	If there's a metagem available for your cloud provider, e.g. `fog-aws`,
+	you should be using it instead of requiring the full fog collection to avoid
+	unnecessary dependencies.
+
+Gema CarrierWave:  
+* Modulo CarrierWave::MiniMagick - [Documentación](http://www.rubydoc.info/github/jnicklas/carrierwave/CarrierWave/MiniMagick)  
+* CarrierWave en MiniMagick - [Documentación](https://github.com/carrierwaveuploader/carrierwave#using-minimagick)
+
+
 ###Seguridad de Rails
 
 Articulo sobre la [Seguridad de variables](https://aloneinthebotnet.wordpress.com/2015/11/23/seguridad-y-variables-de-entorno-en-una-aplicacion-rails/)

@@ -1,0 +1,6 @@
+<% if @objetos_publicados.any? %>
+	<ol class="microentradas">
+		<%= render @objetos_publicados %>
+	</ol>
+	<%= will_paginate @objetos_publicados %>
+<% end %>

@@ -14,6 +14,13 @@ Usuario.create!(nombre: "Usuario de ejemplo",
 								activado: true,
   							activado_en: Time.zone.now )
 
+Usuario.create!(nombre: "Segundo usuario",
+								email: "vertederonuclear@gmail.com",
+								password: 'password',
+								password_confirmation: 'password',
+								activado: true,
+  							activado_en: Time.zone.now )
+
 99.times do |n|
 	nombre = Faker::Name.name
 	email = "ejemplo#{n+1}@railstutorial.org"
@@ -24,4 +31,11 @@ Usuario.create!(nombre: "Usuario de ejemplo",
 									password_confirmation: password,
 									activado: true,
   								activado_en: Time.zone.now )
+end
+
+usuarios = Usuario.order(:created_at).take(6)
+50.times do
+	#contenido = Faker::HitchhikersGuideToTheGalaxy.marvin_quote
+	contenido = Faker::Lovecraft.sentence(4,3)
+	usuarios.each { |usuario| usuario.microentradas.create!(contenido: contenido) }
 end

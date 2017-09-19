@@ -23,6 +23,8 @@ class Usuario < ApplicationRecord
 											 length: { minimum: 8 },
 											 allow_nil: true
 
+	has_many :microentradas, dependent: :destroy
+
 	class << self # self se refiere a la clase Usuario - Modo ExtraConfuso
 			# Devuelve el digest del string
 		#def Usuario.digest(string) # Modo Claro
@@ -90,6 +92,15 @@ class Usuario < ApplicationRecord
 
 	def reseteo_password_expirado?
 		reseteo_enviado_en < 2.hours.ago
+	end
+
+		# Feed de microentradas a Home y...
+	def publicado
+			# Usado para mostrar el capitulo 14 - Following
+			# Ejecuta una consulta SQL con id escapado
+		Microentrada.where("usuario_id = ?", id) 
+			# equivalente a: 
+		#microentradas
 	end
 
 	private

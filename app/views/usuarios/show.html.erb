@@ -4,10 +4,19 @@
 		<section class="info_usuario">
 			<h1>
 				<!-- Ayudante en app/helpers/usuarios_helper.rb -->
-				<%#= gravatarPara @usuario %> 
+					<%#= gravatarPara @usuario %> 
 				<%= gravatarPara @usuario, medida: 80 %> 
 				<%= @usuario.nombre %>
 			</h1>
 		</section>
 	</aside>
+	<div class="col-md-8">
+		<% if @usuario.microentradas.any? %>
+			<h3>Microentradas (<%= @usuario.microentradas.count %>)</h3>
+			<ol class="microentradas">
+				<%= render @microentrada %>
+			</ol>
+			<%= will_paginate @microentrada %>
+		<% end %>
+	</div>
 </div>

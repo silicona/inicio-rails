@@ -5,7 +5,7 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<%= form_for(@usuario, url: reseteo_password_path(params[:id])) do |f| %>
-			<%= render 'compartido/mensaje_error' %>
+			<%= render 'compartido/mensaje_error', objeto: f.object %>
 
 			<%= hidden_field_tag :email, @usuario.email %>
 

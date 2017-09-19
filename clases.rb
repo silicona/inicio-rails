@@ -46,3 +46,11 @@ end
 # usuario.send('digest_activacion') => "$2a$10$KApqwdMeBqNSSU6jrst5HOB1YfQVzUA51jZr5TVHAX4fijndBiwoq"
 # atributo = :activacion
 # usuario.send("digest_#{activacion}") => "$2a$10$KApqwdMeBqNSSU6jrst5HOB1YfQVzUA51jZr5TVHAX4fijndBiwoq"
+
+# Escritura Lambda - funcion sin nombre
+# -> { puts "foo"}
+# 	=> #<Proc:0x....
+# 	# Evaluar la funcion
+# -> { puts "foo" }.call
+# 	foo
+# 	=> nil

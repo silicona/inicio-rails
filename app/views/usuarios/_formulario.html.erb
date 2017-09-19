@@ -1,5 +1,5 @@
 <%= form_for(@usuario) do |f| %>
-	<%= render 'compartido/mensaje_error' %>
+	<%= render 'compartido/mensaje_error', objeto: f.object %>
 	<%= f.label :nombre %>
 	<%= f.text_field :nombre, class: 'form-control' %>
 	

@@ -82,4 +82,16 @@ class UsuarioTest < ActiveSupport::TestCase
   test "autentificado? debería retornar falso para un usuario con digest = nil" do
   	assert_not @usuario.autentificado?(:recuerda, '')
   end
+
+  #############################################################
+  	# Test de microentradas relacionadas con el usuario
+  #############################################################
+
+  test "Las entradas del usuario deberían destruirse al borrar el usuario" do
+  	@usuario.save
+  	@usuario.microentradas.create!(contenido: "Entrada agazapada")
+  	assert_difference "Microentrada.count", -1 do
+  		@usuario.destroy
+  	end
+  end
 end

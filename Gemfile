@@ -13,11 +13,24 @@ gem 'bootstrap-sass', '3.3.7'
 # Usa bcrypt para la autentificación de usuarios
 gem 'bcrypt', '3.1.11'
   # Crea usuarios de pruebas
-gem 'faker', '1.7.3'
+gem 'faker', '1.8.4'
   # Gema para paginar la app - Documentacion https://github.com/mislav/will_paginate/wiki/API-documentation
 gem 'will_paginate', '3.1.5'
   # Gema de bootstrap para paginate
 gem 'bootstrap-will_paginate', '1.0.0'
+
+##################################################
+  # Gemas de carga de imagenes
+##################################################
+
+  # Carrierwave crea un generador rails para cargar imagenes.
+  # Creamos el cargador Uploader Imagen y se referencia en el modelo Microentrada
+gem 'carrierwave', '1.1.0'
+gem 'mini_magick', '4.7.0'
+gem 'fog', '1.40.0'
+
+##################################################
+
 # Use Puma as the app server
 gem 'puma', '~> 3.9.1'
 # Use SCSS for stylesheets

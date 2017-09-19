@@ -1,0 +1,48 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+naranja:
+  contenido: Me he comido una naranja
+  created_at: <%= 10.minutes.ago %>
+  usuario: paco
+
+manifiesto_tau:
+  contenido: "Visita la web @tauday de @mhartl: http://tauday.com"
+  created_at: <%= 3.years.ago %>
+  usuario: paco
+
+video de gato:
+  contenido: "Cuando dios rie, muere un gatito: http://youtu.be/PKffm2uI4dk"
+  created_at: <%= 2.hours.ago %>
+  usuario: paco
+
+mas_reciente:
+  contenido: Escribiendo mis memorias
+  created_at: <%= Time.zone.now %>
+  usuario: paco
+
+<% 30.times do |n| %>
+microentrada-<%= n %>:
+  contenido: <%= Faker::Lovecraft.sentence(4,4) %>
+  created_at: <%= 42.days.ago %>
+  usuario: paco
+<% end %>
+
+hormigas:
+  contenido: "El hormiguero se mueve, se mueve, se mueve..."
+  created_at: <%= 2.years.ago %>
+  usuario: shilum
+
+zona:
+  contenido: "Zona de peligro"
+  created_at: <%= 3.days.ago %>
+  usuario: shilum
+
+Tono:
+  contenido: "Su tono es irrelevante, docto y caballero."
+  created_at: <%= 10.minutes.ago %>
+  usuario: sara
+
+furgoneta:
+  contenido: "Compa, la furgoneta parece, no se, que va dando vueltas de campana."
+  created_at: <%= 4.hours.ago %>
+  usuario: sara

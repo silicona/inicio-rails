@@ -14,10 +14,10 @@ class UsuariosController < ApplicationController
   def create
   	@usuario = Usuario.new(parametros_usuario)
   	if @usuario.save
-        # Anulado por la activacion de usuario por mail
-      # dar_acceso_a @usuario # En SesionesHelper.rb
-  		# flash[:success] = "Bienvenido a la PrimeraApp"
-  		# redirect_to @usuario # Equivalente a redirect_to usuario_url(@usuario)
+          # Anulado por la activacion de usuario por mail
+        # dar_acceso_a @usuario # En SesionesHelper.rb
+    		# flash[:success] = "Bienvenido a la PrimeraApp"
+    		# redirect_to @usuario # Equivalente a redirect_to usuario_url(@usuario)
       @usuario.enviar_mail_activacion
       flash[:info] = "Por favor, comprueba tu email para activar la cuenta."
       redirect_to root_url
@@ -43,6 +43,7 @@ class UsuariosController < ApplicationController
   def show
   	@usuario = Usuario.find(params[:id])
     redirect_to root_url and return unless @usuario.activado
+    @microentrada = @usuario.microentradas.paginate(page: params[:page])
   end
 
   def destroy
@@ -55,14 +56,6 @@ class UsuariosController < ApplicationController
   	def parametros_usuario
   		params.require(:usuario).permit(:nombre, :email, :password, :password_confirmation)
   	end
-
-    def usuario_accedido
-      unless ha_accedido?
-        guardar_URL
-        flash[:danger] = "Por favor, accede primero."
-        redirect_to acceder_path
-      end
-    end
 
     def usuario_correcto
       @usuario = Usuario.find(params[:id])
