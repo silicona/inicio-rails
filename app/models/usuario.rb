@@ -126,9 +126,9 @@ class Usuario < ApplicationRecord
 	def publicado
 			# Usado para mostrar el capitulo 14 - Following
 			# Ejecuta una consulta SQL con id escapado
-		#Microentrada.where("usuario_id = ?", id) 
+		Microentrada.where("usuario_id = ?", id) 
 			# siguiendo_ids = usuario.siguiendo.map(&:id)
-		Microentrada.where("usuario_id IN (?) OR usuario_id = ?", siguiendo_ids, id) 
+		#Microentrada.where("usuario_id IN (?) OR usuario_id = ?", siguiendo_ids, id) 
 		#siguiendo_ids = "SELECT seguido_id FROM relaciones WHERE seguidor_id = :usuario_id"
 		#Microentrada.where("usuario_id IN (#{siguiendo_ids}) OR usuario_id = :usuario_id", usuario_id: id)
 			# equivalente a: 
