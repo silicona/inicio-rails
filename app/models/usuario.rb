@@ -129,6 +129,7 @@ class Usuario < ApplicationRecord
 		#Microentrada.where("usuario_id = ?", id) 
 			# siguiendo_ids = usuario.siguiendo.map(&:id)
 		#Microentrada.where("usuario_id IN (?) OR usuario_id = ?", siguiendo_ids, id) 
+			# Mediante el sub-select, la operacion se mantiene en la BD
 		siguiendo_ids = "SELECT seguido_id FROM relaciones WHERE seguidor_id = :usuario_id"
 		Microentrada.where("usuario_id IN (#{siguiendo_ids}) OR usuario_id = :usuario_id", usuario_id: id)
 			# equivalente a: 

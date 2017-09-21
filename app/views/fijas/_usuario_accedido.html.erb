@@ -12,6 +12,11 @@
 	</aside>
 	<div class="col-md-8">
 		<h3>Mensajes publicados</h3>
-		<%= render "compartido/publicado" %>
+		<%# debug @objetos_publicados %>
+		<% if @objetos_publicados.empty? %>
+			<h3>No hay publicaciones disponibles</h3>
+		<% else %>
+			<%= render "compartido/publicado" %>
+		<% end %>
 	</div>
 </div>

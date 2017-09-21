@@ -8,9 +8,10 @@ class MicroentradasController < ApplicationController
 			flash[:success] = "¡Microentrada creada!"
 			redirect_to root_url
 		else
-			@objetos_publicados = []
-			#@objetos_publicados = usuario_actual.microentradas # Error
+				#@objetos_publicados = [] # Parche de Hartl
+			@objetos_publicados = usuario_actual.publicado.paginate(page: params[:page])
 			render "fijas/inicio"
+			#redirect_to root_url, errores: @microentrada.errors
 		end
 	end
 
@@ -18,8 +19,8 @@ class MicroentradasController < ApplicationController
 		@microentrada.destroy
 		flash[:success] = "Microentrada borrada"
 			# redirige a la URL anterior o root (este útlimo, por algunos tests)
-		redirect_to request.referrer || root_url
-		#redirect_back(fallback_location: root_url)
+			#redirect_to request.referrer || root_url
+		redirect_back(fallback_location: root_url)
 	end
 
 	private
