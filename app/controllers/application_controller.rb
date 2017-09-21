@@ -10,6 +10,16 @@ class ApplicationController < ActionController::Base
       redirect_to acceder_path
     end
   end
+
+  def ejecutar_sql(sql)
+    resultado = ActiveRecord::Base.connection.execute(sql)
+    if resultado.present?
+      return resultado
+    else
+      return nil
+    end
+  end
+
   # def hola
   # 	render html: "Hola, cochino mundo!"
   # end

@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170919161153) do
 
   create_table "relaciones", force: :cascade do |t|
     t.integer "seguidor_id"
-    t.string "seguido_id"
+    t.integer "seguido_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["seguido_id"], name: "index_relaciones_on_seguido_id"

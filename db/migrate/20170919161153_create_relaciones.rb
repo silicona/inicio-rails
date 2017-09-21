@@ -2,7 +2,7 @@ class CreateRelaciones < ActiveRecord::Migration[5.1]
   def change
     create_table :relaciones do |t|
       t.integer :seguidor_id
-      t.string :seguido_id
+      t.integer :seguido_id
 
       t.timestamps
     end

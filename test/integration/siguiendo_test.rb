@@ -53,4 +53,11 @@ class SiguiendoTest < ActionDispatch::IntegrationTest
 			delete relacion_path(relacion), xhr: true
 		end
 	end
+
+	test "Publicado en Página Inicio" do
+		get root_path
+		@usuario.publicado.paginate(page: 1).each do |microentrada|
+			assert_match microentrada.contenido, response.body
+		end
+	end
 end
