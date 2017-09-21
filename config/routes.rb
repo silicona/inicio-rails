@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/registro', to: 'usuarios#new'
   post "/registro", to: "usuarios#create"
 
+  get "/microentradas", to: 'microentradas#create', microentrada: { contenido: "" }
+
   resources :usuarios do
       # member permite que la URL de cada usuario ejecute el bloque
       # collection opera sin :id

@@ -50,3 +50,13 @@ furgoneta:
   contenido: "Compa, la furgoneta parece, no se, que va dando vueltas de campana."
   created_at: <%= 4.hours.ago %>
   usuario: sara
+
+telar:
+  contenido: "Esto llega a primera hora."
+  created_at: <%= 2.days.ago %>
+  usuario: clara
+
+caseta:
+  contenido: "La caseta de la perra es mayor que la mía."
+  created_at: <%= 1.day.ago %>
+  usuario: clara

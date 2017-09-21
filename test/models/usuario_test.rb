@@ -121,8 +121,9 @@ class UsuarioTest < ActiveSupport::TestCase
     paco = usuarios(:paco)
     shilum = usuarios(:shilum)
     clara = usuarios(:clara)
+    assert_not clara.microentradas.empty?
     clara.microentradas.each do |entradas_seguido|
-      assert_not paco.publicado.include?(entradas_seguido)
+      assert paco.publicado.include?(entradas_seguido)
     end
 
     paco.microentradas.each do |entradas_propias|
