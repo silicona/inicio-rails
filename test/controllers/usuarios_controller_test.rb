@@ -48,7 +48,7 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
   	get usuarios_path
   	assert_template "usuarios/index"
   	assert_select "div.pagination"
-  	primera_pagina = Usuario.paginate(page: 1)
+  	primera_pagina = Usuario.paginate(page: 1, per_page: 10)
   	primera_pagina.each do |usuario|
   		assert_select "a[href=?]", usuario_path(usuario), text: usuario.nombre
   		unless usuario.admin == true
@@ -73,6 +73,20 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
   	assert_difference 'Usuario.count', -1 do
   		delete usuario_path(@otro_usuario)
   	end
+  end
+
+  ##################################################################
+
+    # Seguir y dejar de seguir
+
+  test "Debería redirigir desde Siguiendo si no ha accedido" do
+    get siguiendo_usuario_path(@usuario)
+    assert_redirected_to acceder_path
+  end
+
+  test "Debería redirigir desde Seguidores si no ha accedido" do
+    get seguidores_usuario_path(@usuario)
+    assert_redirected_to acceder_path
   end
 
 end

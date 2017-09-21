@@ -8,4 +8,8 @@ module ApplicationHelper
 		end
 	end
 
+	def enlace_a(nombre, enlace, opciones = {})
+		link_to(nombre, enlace, opciones)
+	end
+
 end

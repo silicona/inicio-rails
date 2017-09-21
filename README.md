@@ -13,6 +13,10 @@ Modificacion de plurales: ActiveSupport::Inflector en config/environment.rb
 * Este archivo anula el archivo config/initializers/inflections.rb
 * Añadido 'password' como irregular (para el reseteo de password)
 
+~~~
+Inflections gestionados desde inflections.rb, debido a sorpresa en cap 14
+~~~
+
 Heroku: Migrar base de datos - heroku run rails db:migrate --app iniciorails  
   
 Archivo de prueba de clases en clases.rb
@@ -47,6 +51,8 @@ Guia de Markdown de [Joe Castro](http://joedicastro.com/pages/markdown.html)
 En Heroku, el orden de usuarios difiere del orden local. (problema por resolver)
 
 Gema will_paginate - [Documentacion](https://github.com/mislav/will_paginate/wiki/API-documentation)
+* Aplicable en el modelo de forma global
+* Aplicable de forma local - equiparar en los test
 
 ~~~
 Nota de Reseteo de password:  
@@ -68,6 +74,10 @@ Gema fog (de carga de imagenes)
 Gema CarrierWave:  
 * Modulo CarrierWave::MiniMagick - [Documentación](http://www.rubydoc.info/github/jnicklas/carrierwave/CarrierWave/MiniMagick)  
 * CarrierWave en MiniMagick - [Documentación](https://github.com/carrierwaveuploader/carrierwave#using-minimagick)
+
+## AJAX
+
+	Ver en controllers/relaciones_controller.rb
 
 
 ###Seguridad de Rails

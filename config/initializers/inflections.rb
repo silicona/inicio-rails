@@ -8,6 +8,12 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.singular /^(ox)en/i, '\1'
 #   inflect.irregular 'password', 'passwords'
 #   inflect.uncountable %w( fish sheep )
+  inflect.singular /([taeiou])s([A-Z]|_|$)/, '\1\2'
+  inflect.singular /([rlnd])es([A-Z]|_|$)/, '\1\2'
+  inflect.plural /([taeiou])([A-Z]|_|$)/, '\1s\2'
+  inflect.plural /([rlnd])([A-Z]|_|$)/, '\1es\2'
+  # inflect.irregular 'password', 'passwords'
+
 end
 
 # These inflection rules are supported but not enabled by default:

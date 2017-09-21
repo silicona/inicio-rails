@@ -9,8 +9,12 @@
 				<%= @usuario.nombre %>
 			</h1>
 		</section>
+		<section class="estadisticas">
+			<%= render 'compartido/estadisticas' %>
+		</section>
 	</aside>
 	<div class="col-md-8">
+		<%= render 'formulario_seguir' if ha_accedido? %>
 		<% if @usuario.microentradas.any? %>
 			<h3>Microentradas (<%= @usuario.microentradas.count %>)</h3>
 			<ol class="microentradas">

@@ -9,14 +9,14 @@ paco:
   activado_en: <%= Time.zone.now %>
 
 shilum:
-  nombre: Perraca
+  nombre: Shilum
   email: peluda@dormida.com
   password_digest: <%= Usuario.digest('password') %>
   activado: true
   activado_en: <%= Time.zone.now %>
 
 sara:
-  nombre: sara
+  nombre: Sara
   email: suemail@example.com
   password_digest: <%= Usuario.digest('password') %>
   activado: true
@@ -31,7 +31,7 @@ clara:
 
 <% 30.times do |n| %>
 user <%= n %>:
-  nombre: <%= "Usuario #{n}" %>
+  nombre: <%= "Usuario_#{n}" %>
   email: <%= "usuario-#{n}@example.com" %>
   password_digest: <%= Usuario.digest('password') %>
   activado: true

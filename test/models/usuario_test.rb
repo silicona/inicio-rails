@@ -94,4 +94,43 @@ class UsuarioTest < ActiveSupport::TestCase
   		@usuario.destroy
   	end
   end
+
+  ########################################
+
+    # Test de seguidores
+
+  test "Debería seguir y dejar de seguir a otro usuario" do
+    @paco = usuarios(:paco)
+    @shilum = usuarios(:shilum)
+    assert_not @paco.siguiendo?(@shilum)
+
+    @paco.seguir(@shilum)
+    assert @paco.siguiendo?(@shilum)
+    assert @shilum.seguidores.include?(@paco)
+
+    @paco.dejar_de_seguir(@shilum)
+    assert_not @paco.siguiendo?(@shilum)
+    
+      # Seguirse s una misma
+    @paco.seguir(@paco)
+    assert @paco.siguiendo?(@paco)
+    assert @paco.seguidores.include?(@paco)
+  end
+
+  test "Lo publicado debería tener las entradas correctas" do
+    paco = usuarios(:paco)
+    shilum = usuarios(:shilum)
+    clara = usuarios(:clara)
+    clara.microentradas.each do |entradas_seguido|
+      assert_not paco.publicado.include?(entradas_seguido)
+    end
+
+    paco.microentradas.each do |entradas_propias|
+      assert paco.publicado.include?(entradas_propias)
+    end
+
+    shilum.microentradas.each do |entradas_ajenas|
+      assert_not paco.publicado.include?(entradas_ajenas)
+    end
+  end
 end

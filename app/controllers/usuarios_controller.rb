@@ -1,10 +1,11 @@
 class UsuariosController < ApplicationController
-  before_action :usuario_accedido, only: [:index, :edit, :update, :destroy]
+    # :usuario_accedido en controllers/application_controller.rb
+  before_action :usuario_accedido, only: [:index, :edit, :update, :destroy, :siguiendo, :seguidores]
   before_action :usuario_correcto, only: [:edit, :update]
   before_action :usuario_admin, only: [:destroy]
 
   def index
-    @usuarios = Usuario.where(activado: true).paginate(page: params[:page])
+    @usuarios = Usuario.where(activado: true).paginate(page: params[:page], per_page: 10)
   end
   
   def new
@@ -50,6 +51,24 @@ class UsuariosController < ApplicationController
     Usuario.find(params[:id]).destroy
     flash[:success] = "Usuario borrado"
     redirect_to usuarios_url
+  end
+
+  ### Seguir y dejar de seguir ###
+
+  def siguiendo
+    @titulo = "Siguiendo"
+    @usuario = Usuario.find(params[:id])
+    @avatares = @usuario.siguiendo
+    @usuarios = @usuario.siguiendo.paginate(page: params[:page])
+    render "show_seguir"
+  end
+
+  def seguidores
+    @titulo = "Seguidores"
+    @usuario = Usuario.find(params[:id])
+    @avatares = @usuario.seguidores
+    @usuarios = @usuario.seguidores.paginate(page: params[:page])
+    render "show_seguir"
   end
 
   private

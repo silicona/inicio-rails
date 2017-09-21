@@ -4,22 +4,26 @@ naranja:
   contenido: Me he comido una naranja
   created_at: <%= 10.minutes.ago %>
   usuario: paco
+  # user_id: 1 # Equivalentes
 
 manifiesto_tau:
   contenido: "Visita la web @tauday de @mhartl: http://tauday.com"
   created_at: <%= 3.years.ago %>
   usuario: paco
+  # user_id: 1 # Equivalentes
 
 video de gato:
   contenido: "Cuando dios rie, muere un gatito: http://youtu.be/PKffm2uI4dk"
   created_at: <%= 2.hours.ago %>
   usuario: paco
+  # user_id: 1 # Equivalentes
 
 mas_reciente:
   contenido: Escribiendo mis memorias
   created_at: <%= Time.zone.now %>
   usuario: paco
-
+  # user_id: 1 # Equivalentes
+  
 <% 30.times do |n| %>
 microentrada-<%= n %>:
   contenido: <%= Faker::Lovecraft.sentence(4,4) %>

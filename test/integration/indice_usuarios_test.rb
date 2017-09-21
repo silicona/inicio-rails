@@ -10,7 +10,7 @@ class IndiceUsuariosTest < ActionDispatch::IntegrationTest
 		get usuarios_path
 		assert_template "usuarios/index"
 		assert_select "div.pagination", count: 2
-		Usuario.paginate(page: 1).each do |usuario|
+		Usuario.paginate(page: 1, per_page: 10).each do |usuario|
 			assert_select "a[href=?]", usuario_path(usuario), text: usuario.nombre
 		end
 	end

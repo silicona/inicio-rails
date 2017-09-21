@@ -14,8 +14,16 @@ Rails.application.routes.draw do
   get '/registro', to: 'usuarios#new'
   post "/registro", to: "usuarios#create"
 
-  resources :usuarios
+  resources :usuarios do
+      # member permite que la URL de cada usuario ejecute el bloque
+      # collection opera sin :id
+    member do
+        # usuarios/1/siguiendo y ...
+      get :siguiendo, :seguidores
+    end
+  end
   resources :activacion_cuentas, only: [:edit]
   resources :reseteo_passwords, only: [:new, :create, :edit, :update]
   resources :microentradas, only: [:create, :destroy]
+  resources :relaciones, only: [:create, :destroy]
 end
