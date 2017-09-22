@@ -44,6 +44,10 @@ class Usuario < ApplicationRecord
 	has_many :seguidores, through: :relaciones_pasivas,
 												source: :seguidor
 
+### Chat ###
+	
+	has_many :mensajes
+	
 ## Metodos ##
 	class << self # self se refiere a la clase Usuario - Modo ExtraConfuso
 			# Devuelve el digest del string

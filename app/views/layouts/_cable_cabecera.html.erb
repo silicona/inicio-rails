@@ -1,0 +1,10 @@
+<header class="cabecera">
+  <a href="/" class="cabecera_logo"><%= render 'layouts/cable_logo' %></a>
+  <ul class="cabecera_nav">
+  	<%= link_to "Inicio", root_path %>
+    <% if ha_accedido? %>
+    	<li><%= link_to "Usuarios conectados", "#" %></li>
+    	<li><%= link_to "Salir", salir_path, method: :delete %>
+    <% end %>
+  </ul>
+</header>

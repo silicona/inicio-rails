@@ -15,3 +15,17 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+//	// Ver codigo coffe en mensajes.coffee
+
+// $(document).on('turbolinks:load', function(){
+// 	$('#mensajes_tabla').append('hola Jquery');
+// })
+
+// apuntador = function(contenido){
+// 	$('#mensajes_tabla').append(contenido)
+// };
+
+// $(document).on('turbolinks:load', function(){
+// 	apuntador("Hola Apuntador")
+// })

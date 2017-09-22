@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= tituloCompleto(yield (:titulo)) %></title>
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= stylesheet_link_tag    'mensajes', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render "layouts/shim" %>
+
+  </head>
+
+  <body>
+    <% flash.each do |tipo_mensaje, mensaje| %>
+      <div class="alert alert-<%= tipo_mensaje %> animatedDelay fadeOutUp"><%= mensaje %></div>
+    <% end %>
+    <%= render 'layouts/cable_cabecera' %>
+    <%= yield %>
+  </body>
+</html>

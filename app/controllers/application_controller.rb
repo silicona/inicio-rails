@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+    # Metodo no probado
   def ejecutar_sql(sql)
     resultado = ActiveRecord::Base.connection.execute(sql)
     if resultado.present?

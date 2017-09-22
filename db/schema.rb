@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919161153) do
+ActiveRecord::Schema.define(version: 20170921235205) do
+
+  create_table "mensajes", force: :cascade do |t|
+    t.text "contenido"
+    t.integer "usuario_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["usuario_id"], name: "index_mensajes_on_usuario_id"
+  end
 
   create_table "microentradas", force: :cascade do |t|
     t.text "contenido"

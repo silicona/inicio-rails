@@ -8,4 +8,5 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
+	# Incluye el archivo mensajes.sass en el assets, para <% stylesheets_link_tag "mensajes" ...%>
+Rails.application.config.assets.precompile += %w( mensajes.css )

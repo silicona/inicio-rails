@@ -25,3 +25,5 @@
 
 # Ignorar las imagenes subidas de prueba
 /public/uploads/
+
+.DS_Store

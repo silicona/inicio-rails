@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'mensajes/index'
+
+  get 'mensajes/create'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "fijas#inicio"
 
@@ -28,4 +32,8 @@ Rails.application.routes.draw do
   resources :reseteo_passwords, only: [:new, :create, :edit, :update]
   resources :microentradas, only: [:create, :destroy]
   resources :relaciones, only: [:create, :destroy]
+
+    # Para el chat del Cable
+  get '/chat', to: 'mensajes#index'
+  resources :mensajes
 end
