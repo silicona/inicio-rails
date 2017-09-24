@@ -53,7 +53,7 @@ gem 'jbuilder', '~> 2.7'
   ## Action Cable
 
   # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 3.0'
+gem 'redis', '~> 3.3.1'
 
 gem 'kramdown', '1.12.0'
 
