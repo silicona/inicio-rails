@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Usuario.create!(nombre: "Usuario de ejemplo",
+Usuario.create!(nombre: "admin",
 								email: "example@railstutorial.org",
 								password: 'password',
 								password_confirmation: 'password',
@@ -14,7 +14,7 @@ Usuario.create!(nombre: "Usuario de ejemplo",
 								activado: true,
   							activado_en: Time.zone.now )
 
-Usuario.create!(nombre: "Segundo usuario",
+Usuario.create!(nombre: "bacilum",
 								email: "vertederonuclear@gmail.com",
 								password: 'password',
 								password_confirmation: 'password',
@@ -22,7 +22,7 @@ Usuario.create!(nombre: "Segundo usuario",
   							activado_en: Time.zone.now )
 
 Usuario.create!(
-	nombre: "La virgen de Fátima",
+	nombre: "fatima",
 	email: "railsprueba0@gmail.com",
 	password: "password",
 	password_confirmation: "password",
@@ -31,7 +31,7 @@ Usuario.create!(
 )
 
 Usuario.create!(
-	nombre: "Oso Yogi",
+	nombre: "Oso_Yogi",
 	email: "railsprueba1@gmail.com",
 	password: "password",
 	password_confirmation: "password",

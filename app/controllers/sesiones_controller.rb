@@ -9,7 +9,9 @@ class SesionesController < ApplicationController
   	if @usuario && @usuario.authenticate(params[:sesiones][:password])
   		if @usuario.activado?
         dar_acceso_a @usuario
+        #recuerda(@usuario)
         params[:sesiones][:recuerda_me] == '1' ? recuerda(@usuario) : olvidar(@usuario)
+        habilitar_chat @usuario
           # Anulado para el redireccionamiento amigable
         #redirect_to @usuario # equivalente a redirect_to usuario_url(usuario)
         redirigir_a_URL_o @usuario

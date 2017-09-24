@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921235205) do
+ActiveRecord::Schema.define(version: 20170923225000) do
 
   create_table "mensajes", force: :cascade do |t|
     t.text "contenido"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170921235205) do
     t.datetime "activado_en"
     t.string "digest_reseteo"
     t.datetime "reseteo_enviado_en"
+    t.string "digest_chat"
     t.index ["email"], name: "index_usuarios_on_email", unique: true
   end
 

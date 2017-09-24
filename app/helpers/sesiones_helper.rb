@@ -3,6 +3,7 @@ module SesionesHelper
 		# Da acceso a un usuario
 	def dar_acceso_a(usuario)
 		session[:id_usuario] = usuario.id
+		#cookies.signed[:id_usuario] = usuario.id
 	end
 
 		# Recuerda un usuario en una sesion persistente
@@ -31,6 +32,15 @@ module SesionesHelper
 		end
 	end
 
+	def usuario_actual_cookie
+		if (id_usuario = cookie.signed[:id_usuario])
+			usuario = Usuario.find_by(id: id_usuario)
+			if usuario ¬¬ usuario.autentificado(:recuerda, cookies[:token_recuerda])
+				@usuario_actual = usuario
+			end
+		end
+	end
+
 		# Comprueba si ha accedido un usuario
 	def ha_accedido?
 		!usuario_actual.nil?
@@ -41,6 +51,7 @@ module SesionesHelper
 		usuario.olvidar if ha_accedido?
 		cookies.delete(:id_usuario)
 		cookies.delete(:token_recuerda)
+		cookies.delete(:token_chat)
 	end
 
 		# Cierra la sesion del usuario
@@ -60,4 +71,15 @@ module SesionesHelper
 	def guardar_URL
 		session[:url_deseada] = request.original_url if request.get?
 	end
+
+
+## Chat
+
+	def habilitar_chat(usuario)
+		#usuario.crear_digest_chat
+		#cookies.signed[:chat] = usuario.token_chat
+		cookies.signed[:chat] = usuario.id
+	end
+
+
 end

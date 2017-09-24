@@ -17,24 +17,24 @@ class MensajesControllerTest < ActionDispatch::IntegrationTest
 
   test "Debería acceder al chat" do
   	dar_acceso_como @usuario
-  	get chat_url
+  	get mensajes_url
   	assert_response 200
   end
 
   test "El chat debería requerir acceso" do
-  	get chat_url
+  	get mensajes_url
   	assert_redirected_to acceder_url
   end
 
  	test "Debería hacer un mensaje válido" do
  		dar_acceso_como @usuario
- 		post mensajes_url, params: { mensaje: { contenido: "Contenido válido" } }
- 		assert_response :redirect
+ 		post mensajes_url, params: { mensaje: { contenido: "Contenido válido" } }, xhr: true
+ 		assert_response :success
  	end
 
   test "Debería gestionar los mensajes invalidos" do
   	dar_acceso_como @usuario
-  	post mensajes_url, params: { mensaje: { contenido: "" } }
+  	post mensajes_url, params: { mensaje: { contenido: "" } }, xhr: true
   	assert_response :success
   end
 

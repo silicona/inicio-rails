@@ -1,0 +1,7 @@
+<h1><%= controller.action_name %></h1>
+<%= form_tag({controller: "gestion_archivos", action: "guardar_comentario"}, method: "post") do %>
+	<%= text_area_tag "comentarios", @comentarios, cols: 10, required: "required" %>
+	<br>
+	<%= submit_tag "Guardar comentario" %>
+<% end %>
+<p><%= link_to "Volver a la lista de archivos", controller: "gestion_archivos", action: "listar" %></p>

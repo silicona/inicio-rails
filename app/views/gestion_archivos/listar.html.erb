@@ -1,0 +1,31 @@
+<h2><%= controller.action_name %></h2>
+	<!-- Mensaje enviado de la anterior página-->
+<% if @mensaje %>
+	<div>
+	   <strong> <%= @mensaje %> </strong>
+	</div>
+<% end %>
+	<!-- Enlace a la página de subir archivos -->
+<p> <%= link_to "Subir archivo", :controller => "gestion_archivos", :action => "subir" %> </p>
+	<!-- Lista de archivos subidos -->
+<ul>
+   <% @archivos.each do |a| %>
+   <% if a == "." or a == ".." then next end; %>
+   <li>
+      <strong> <%= a %> </strong> | 
+      <a target="_blank" href="/archivos/<%= a %>"> Ver archivo </a> | 
+      <%= link_to "Borrar archivo", {:controller => "gestion_archivos", :action => "borrar", :archivo_a_borrar => a}, {:method => "post", :confirm => "Seguro?"} %>
+   </li>
+   <% end %>
+</ul>
+<!-- Acá se guarda el nombre del archivo antes de que el formularo sea enviado-->
+<hr />
+<!-- Comentarios guardados por el usuario. -->
+<h2> Últimos Comentarios: </h2>
+<div>
+   <pre><%= @comentarios; %></pre>
+   <%= link_to "Agregar comentarios", :controller => "gestion_archivos", :action => "guardar_comentario" %>
+</div>
+<div>
+	<p>Gracias a la <%= enlace_a "Web de Fernando Gaitan", "https://fernando-gaitan.com.ar/ruby-on-rails-parte-9-subir-y-trabajar-con-archivos/" %></p>
+</div>

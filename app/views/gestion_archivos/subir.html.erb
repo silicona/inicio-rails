@@ -1,0 +1,11 @@
+<h2><%= controller.action_name %></h1>
+<%= form_tag({controller: "gestion_archivos", action: "subir"}, method: "post", multipart: true) do %>
+	<%= file_field_tag "archivo_subida", required: "required" %>
+	<%= submit_tag "Subir archivos" %>
+<% end %>
+<% if @formato_erroneo %>
+	<div>
+		<p>El formato del archivo es incorrecto. Solo se admiten archivos .pdf, .doc y .docx</p>
+	</div>
+<% end %>
+<p><%= link_to "Volver a la lista de archivos", controler: "gestion_archivos", action: "listar" %></p>

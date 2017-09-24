@@ -9,10 +9,9 @@
 #	$('#mensajes_tabla').append('hola Mundillo')
 #$(document).on('turbolinks:load', poner_anexo);
 
-apuntador = (contenido) ->
-  $('#mensajes_tabla').append contenido
+#apuntador = (contenido) ->
+#  $('#mensajes_tabla').append contenido
 
-$(document).on 'turbolinks:load', (evento) =>
-  apuntador "Hola Apuntador" 
-
+#$(document).on 'turbolinks:load', (evento) =>
+#  apuntador "Hola Apuntador" 
 

@@ -19,6 +19,7 @@ class ActiveSupport::TestCase
   	# Acceder como un usuario en los test de controladores
   def dar_acceso_como
   	session[:id_usuario] = usuario.id
+    cookies.signed[:chat] = usuario.id
   end
 
 end

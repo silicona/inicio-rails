@@ -101,6 +101,10 @@ Página oficial - [coffeescript.org](http://www.coffeescript.org)
 
 Aqui hay un [corrector instalable](http://www.coffeelint.org/) de Coffee, por CoffeeLint.
 
+## Action cable
+
+Otro ejemplo de [ChatconActionCable](https://hectorperezarenas.com/2015/12/26/rails-5-tutorial-how-to-create-a-chat-with-action-cable/)
+
 ##Heroku
 
 ~~~

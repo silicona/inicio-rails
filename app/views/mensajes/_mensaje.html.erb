@@ -4,6 +4,7 @@
     <%= gravatarPara(mensaje.usuario) %>
   </div>
   <div class="mensaje_contenido">
-    <%= mensaje.contenido %>
+    <%# mensaje.contenido %>
+    <%= sanitize markdown_en_html(mensaje.contenido) %>
   </div>
 </div>

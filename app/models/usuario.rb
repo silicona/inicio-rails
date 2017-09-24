@@ -1,16 +1,17 @@
 class Usuario < ApplicationRecord
 
-	attr_accessor :token_recuerda, :token_activacion, :token_reseteo
+	attr_accessor :token_recuerda, :token_activacion, :token_reseteo, :token_chat
 	before_save :formatear_email
 	before_create :crear_digest_activacion
 
 	#RegexpEmail = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	RegexpEmail = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+	RegexNombre = /\w+/i
 	
-	validates :nombre, presence: true,
+	validates :nombre, presence: { message: "está en blanco" },
 										 length: { maximum: 50 }
 	
-	validates :email, presence: true,
+	validates :email, presence: { message: "está en blanco" },
 										length: { maximum: 50 },
 										format: { with: RegexpEmail },
 										uniqueness: { case_sensitive: false }
@@ -20,7 +21,7 @@ class Usuario < ApplicationRecord
 		# Incluye los atributos virtuales Password y password_confirmation y el método authenticate
 		# Necesita gema bcrypt en gemfile
 
-	validates :password, presence: true,
+	validates :password, presence: { message: "está en blanco" },
 											 length: { minimum: 8 },
 											 allow_nil: true
 
@@ -74,6 +75,11 @@ class Usuario < ApplicationRecord
 		update_attribute(:digest_recuerda, Usuario.digest(token_recuerda))
 	end
 
+	def crear_digest_chat
+		self.token_chat = Usuario.nuevo_token
+		self.update_attribute(:digest_chat, Usuario.digest(token_chat))
+	end
+	
 		# Devuelve true si el token coincide con el digest correspondiente
 			# Refactorizado para la activacion de usuario y reseteo de password
 			# def autentificado?(token_recuerda)
@@ -88,7 +94,8 @@ class Usuario < ApplicationRecord
 	end
 
 	def olvidar
-		update_attribute(:digest_recuerda, nil)
+		#update_attribute(:digest_recuerda, nil)
+		update_columns(digest_recuerda: nil, digest_chat: nil)
 	end
 
 		#Configuracion de Paginate en index para el modelo Usuario
@@ -166,4 +173,6 @@ class Usuario < ApplicationRecord
 			self.token_activacion = Usuario.nuevo_token
 			self.digest_activacion = Usuario.digest(token_activacion)
 		end
+
+
 end
