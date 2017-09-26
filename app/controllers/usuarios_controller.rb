@@ -86,33 +86,3 @@ class UsuariosController < ApplicationController
     end
 end
 
-describe UsuariosController do
-  #render_views
-
-  describe "GET 'index'" do
-
-    describe "for non-signed-in users" do
-      it "redirects to login page" do
-        visit :index
-        response.should redirect_to(signin_path)
-        flash[:notice].should match(/sign in/i)
-      end
-    end
-
-    describe "for signed-in users" do
-      #login_user
-
-      before(:each) do
-        get :index
-      end
-
-      it "is successful" do
-        response.should be_success
-      end
-
-      it "has the right title" do
-        response.should have_selector("title", :content => "Users")
-      end
-    end
-  end
-end
