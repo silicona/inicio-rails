@@ -15,7 +15,7 @@ class GestionArchivosController < ApplicationController
   			# Obtener la extensión del archivo
   		extension = nombre.slice(nombre.rindex("."), nombre.length).downcase
   			# Comprueba la extensión correcta
-  		if extension == ".pdf" or extension == ".doc" or extension == ".docx"
+  		if extension == ".pdf" or extension == ".doc" or extension == ".docx" or extension == ".png"
   			ruta = File.join(directorio, nombre)
   				# Creación del archivo
   			resultado = File.open(ruta, "wb") { |f| f.write(archivo.read) }
@@ -35,7 +35,11 @@ class GestionArchivosController < ApplicationController
 
   def listar
   		# obtenemos la lista del directorio
-  	@archivos = Dir.entries(RutaArchivos)
+    @archivos = []
+  	archivos = Dir.entries(RutaArchivos)
+    archivos.each do |a|
+      (a == '.' || a == '..') ? next : @archivos << a
+    end
   		# Mensaje que muestra si la pagina viene de otra opcion
   	@mensaje = ""
   		# Comprueba la variable GET subir
@@ -58,7 +62,7 @@ class GestionArchivosController < ApplicationController
   	if File.exist?(RutaComentarios)
   		@comentarios = File.read(RutaComentarios)
   	else
-  		@comentarios = ""
+  		@comentarios = "Sin comentarios"
   	end
   end
 

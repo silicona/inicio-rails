@@ -63,10 +63,14 @@ gem 'kramdown', '1.12.0'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Use sqlite3 as the database for Active Record
+    # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '1.3.13'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+    # RSpec
+  gem 'rspec-rails', '~> 3.6'
+    # Capybara
+  gem 'capybara'
 end
 
 group :development do

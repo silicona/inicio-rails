@@ -1,20 +1,27 @@
-<h2><%= controller.action_name %></h2>
+<h2>Listado de archivos</h2>
 	<!-- Mensaje enviado de la anterior página-->
 <% if @mensaje %>
 	<div>
 	   <strong> <%= @mensaje %> </strong>
 	</div>
 <% end %>
+<% if !flash.empty? %>
+  <% flash.each do |tipo_flash, mensaje_flash| %>
+    <%= content_tag(:div, mensaje_flash, class: "alert alert-#{tipo_flash}") %>
+  <% end %>
+<% end %>
 	<!-- Enlace a la página de subir archivos -->
-<p> <%= link_to "Subir archivo", :controller => "gestion_archivos", :action => "subir" %> </p>
+<p> <%# link_to "Subir archivo", :controller => "gestion_archivos", :action => "subir" %> </p>
+<p> <%= enlace_a "Subir archivo", gestion_archivos_subir_path %> </p>
 	<!-- Lista de archivos subidos -->
 <ul>
    <% @archivos.each do |a| %>
-   <% if a == "." or a == ".." then next end; %>
-   <li>
+   <%# if a == "." or a == ".." then next end; %>
+   <li class="archivo">
       <strong> <%= a %> </strong> | 
       <a target="_blank" href="/archivos/<%= a %>"> Ver archivo </a> | 
       <%= link_to "Borrar archivo", {:controller => "gestion_archivos", :action => "borrar", :archivo_a_borrar => a}, {:method => "post", :confirm => "Seguro?"} %>
+      <%# link_to "Borrar archivo", {:controller => "gestion_archivos", :action => "borrar", :archivo_a_borrar => a}, {:method => "post", :confirm => "Seguro?"} %>
    </li>
    <% end %>
 </ul>

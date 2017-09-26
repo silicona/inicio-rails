@@ -5,11 +5,8 @@ Rails.application.routes.draw do
 
   get 'gestion_archivos/subir'
   post 'gestion_archivos/subir'
-
   get 'gestion_archivos/listar', as: "listar"
-
   post 'gestion_archivos/borrar'
-
   get 'gestion_archivos/guardar_comentario'
   post 'gestion_archivos/guardar_comentario'
 

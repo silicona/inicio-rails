@@ -32,4 +32,13 @@ class ActionDispatch::IntegrationTest
 																						 password: password,
 																						 recuerda_me: recuerda_me } }
 	end
+
+  def archivos_actuales
+    archivos = Dir.entries("public/archivos/")
+    entradas = []
+    archivos.map do |archivo|
+      (archivo =="." || archivo == "..") ? nil : entradas << archivo
+    end.flatten.compact
+    return entradas
+  end
 end

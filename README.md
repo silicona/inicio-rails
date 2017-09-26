@@ -25,13 +25,25 @@ Inflections gestionados desde inflections.rb, debido a sorpresa en cap 14
   
 Archivo de prueba de clases en clases.rb
 
-### Tests
+Ver las [extensiones de objetos](http://guides.rubyonrails.org/active_support_core_extensions.html) en las guias de Rails
+
+## Tests
+
+### Test
 
 * Test de integracion Diseño_web - Apuntes en el test
 * Test directos de Helpers en test/helpers/ayudantes_aplicacion_test.rb
 
 Uso de 'debugger' en el controlador para inspeccionar variables y parametros en la vista  
 	(Control + D y eliminar el debugger del controlador para continuar)  
+
+### RSpec
+
+Ver la [Documentación en Github](https://github.com/rspec/rspec-rails)
+
+Ver [Better Specs](http://www.betterspecs.org/es/)
+
+Instalada la [gema Capybara](https://github.com/teamcapybara/capybara) para habilitar los features de rspec y otros
 
 ### Debug en consola de rails
 <code>
